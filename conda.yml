@@ -1,4 +1,4 @@
-channels:
+channels: 
   - conda-forge
 dependencies:
   - python=3.9
@@ -6,6 +6,7 @@ dependencies:
   - pip:
     - python-dotenv
     - azure-ai-ml
+    - azure-identity
     - promptflow
     - promptflow-tools
     - keyrings.alt
