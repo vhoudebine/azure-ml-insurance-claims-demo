@@ -5,7 +5,7 @@ environment:
 inputs:
   question:
     type: string
-    default: How to use SDK V2?
+    default: Does my boat owners policy cover racing in contests?
     is_chat_input: false
 outputs:
   output:
