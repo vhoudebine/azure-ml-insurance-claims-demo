@@ -1,0 +1,14 @@
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9
+  - pip=24.0
+  - pip:
+    - python-dotenv
+    - azure-ai-ml
+    - promptflow
+    - promptflow-tools
+    - keyrings.alt
+    - numpy
+    - pandas
+    - ipykernel
