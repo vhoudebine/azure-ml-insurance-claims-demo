@@ -9,6 +9,7 @@ dependencies:
     - azure-identity
     - promptflow
     - promptflow-tools
+    - promptflow-vectordb
     - keyrings.alt
     - numpy
     - pandas

@@ -5,7 +5,7 @@ environment:
 inputs:
   question:
     type: string
-    default: Does my boat owners policy cover racing in contests?
+    default: Am I covered for boat racing contests?
     is_chat_input: false
 outputs:
   output:
@@ -23,40 +23,29 @@ nodes:
         api_base: https://victor-aoai.openai.azure.com/
         api_type: azure
         api_version: 2023-07-01-preview
-        batch_size: '16'
+        batch_size: '1'
         connection:
-          id: 
-            /subscriptions/9a729243-1221-42c5-824c-9e44cb2da98d/resourceGroups/insure-rg/providers/Microsoft.MachineLearningServices/workspaces/insure-aml/connections/aoai-connect
+          id: /subscriptions/9a729243-1221-42c5-824c-9e44cb2da98d/resourceGroups/insure-rg/providers/Microsoft.MachineLearningServices/workspaces/insure-aml/connections/aoai-connect
         connection_type: workspace_connection
         deployment: victor-ada2
         dimension: 1536
-        file_format_version: '2'
         kind: open_ai
         model: text-embedding-ada-002
         schema_version: '2'
       index:
-        api_version: 2023-07-01-preview
+        api_version: 2023-07-01-Preview
         connection:
-          id: 
-            /subscriptions/9a729243-1221-42c5-824c-9e44cb2da98d/resourceGroups/insure-rg/providers/Microsoft.MachineLearningServices/workspaces/insure-aml/connections/aisearch-pf-connect
+          id: /subscriptions/9a729243-1221-42c5-824c-9e44cb2da98d/resourceGroups/insure-rg/providers/Microsoft.MachineLearningServices/workspaces/insure-aml/connections/aisearch-pf-connect
         connection_type: workspace_connection
         endpoint: https://insure-ai-search.search.windows.net
         engine: azure-sdk
         field_mapping:
           content: content
           embedding: contentVector
-          filename: filepath
           metadata: meta_json_string
-          title: title
-          url: url
         index: insure-vector-index
         kind: acs
         semantic_configuration_name: azureml-default
-      self:
-        path: 
-          azureml://subscriptions/9a729243-1221-42c5-824c-9e44cb2da98d/resourcegroups/insure-rg/workspaces/insure-aml/datastores/workspaceblobstore/paths/azureml/87adedd5-d858-44b3-829d-218e04bd20f0/index/
-        asset_id: 
-          azureml://locations/eastus/workspaces/efd5a12b-772d-44b0-9e86-5c56e4ae37ea/data/insure-vector-index/versions/1
     queries: ${inputs.question}
     query_type: Hybrid (vector + keyword)
     top_k: 2
