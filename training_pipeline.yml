@@ -8,11 +8,11 @@ jobs:
     entry:
       file: spark_feature_eng.py
     conf:
-      spark.driver.cores: 4
-      spark.driver.memory: 16g
-      spark.executor.cores: 4
-      spark.executor.memory: 16g
-      spark.executor.instances: 24
+      spark.driver.cores: 2
+      spark.driver.memory: 8g
+      spark.executor.cores: 2
+      spark.executor.memory: 8g
+      spark.executor.instances: 8
 
     inputs:
       raw_data:
@@ -36,6 +36,26 @@ jobs:
       instance_type: standard_e16s_v3
       runtime_version: "3.3"
   
+  train_model:
+    name: train_model
+    display_name: train-model
+    code: ./src
+    command: >-
+      python train.py
+      --data ${{inputs.data}}
+      --test_train_ratio ${{inputs.test_train_ratio}}
+      --n_estimators ${{inputs.n_estimators}}
+      --learning_rate ${{inputs.learning_rate}}
+      --registered_model_name ${{inputs.registered_model_name}}
+    environment: azureml://registries/azureml/environments/sklearn-1.0/labels/latest
+    compute: azureml:dev-cluster
+    inputs:
+      data: ${{parent.jobs.data_engineering.outputs.training_data}}
+      test_train_ratio: 0.2
+      registered_model_name: claims_insurance_model
+      learning_rate: 0.1
+      n_estimators: 100
+        
   
 
     
