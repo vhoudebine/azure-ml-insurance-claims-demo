@@ -1,0 +1,6 @@
+$schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
+name: claims-prediction
+endpoint_name: insurance-claims
+model: azureml:claims_insurance_model:1
+instance_type: Standard_DS3_v2
+instance_count: 1

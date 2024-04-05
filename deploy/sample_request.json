@@ -1,0 +1,6 @@
+{
+    "input_data":
+{"columns": ["30_d_fuel_type_is_claim_sum","policy_tenure", "age_of_car", "age_of_policyholder", "area_cluster", "population_density", "make", "segment", "model", "fuel_type", "max_torque", "max_power", "engine_type", "airbags", "is_esc", "is_adjustable_steering", "is_tpms", "is_parking_sensors", "is_parking_camera", "rear_brakes_type", "displacement", "cylinder", "transmission_type", "gear_box", "steering_type", "turning_radius", "length", "width", "height", "gross_weight", "is_front_fog_lights", "is_rear_window_wiper", "is_rear_window_washer", "is_rear_window_defogger", "is_brake_assist", "is_power_door_locks", "is_central_locking", "is_power_steering", "is_driver_seat_height_adjustable", "is_day_night_rear_view_mirror", "is_ecw", "is_speed_alert", "ncap_rating", "model_claims_sum_30_continuous", "model_claims_sum_60_continuous", "model_claims_sum_90_continuous"], 
+"index": [0], 
+"data": [[0, 0.073856824457522, 0.15, 0.394230769230769, "C12", 34791, 1, "B2", "M6", "Petrol", "113Nm@4400rpm", "88.50bhp@6000rpm", "K Series Dual jet", 2, "No", "Yes", "No", "Yes", "No", "Drum", 1197, 4, "Manual", 5, "Electric", 4.8, 3845, 1735, 1530, 1335, "Yes", "No", "No", "No", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes", 2, 82.0, 145.0, 145.0]]}
+}
