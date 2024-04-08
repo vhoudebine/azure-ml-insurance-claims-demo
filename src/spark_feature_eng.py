@@ -15,6 +15,8 @@ spark = (
 parser = argparse.ArgumentParser()
 parser.add_argument("--raw_data")
 parser.add_argument("--training_data")
+parser.add_argument("--training_table")
+
 
 args = parser.parse_args()
 print(args.raw_data)
@@ -29,4 +31,3 @@ df = df.withColumn("30_d_fuel_type_is_claim_sum", sum(col("is_claim")).over(wind
 print (f"Writing to {args.training_data}")
 
 df.write.mode('overwrite').parquet(args.training_data)
-

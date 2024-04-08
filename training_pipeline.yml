@@ -47,6 +47,7 @@ jobs:
       --n_estimators ${{inputs.n_estimators}}
       --learning_rate ${{inputs.learning_rate}}
       --registered_model_name ${{inputs.registered_model_name}}
+      --training_table ${{outputs.training_table}}
     environment: azureml://registries/azureml/environments/sklearn-1.0/labels/latest
     compute: azureml:dev-cluster
     inputs:
@@ -55,6 +56,12 @@ jobs:
       registered_model_name: claims_insurance_model
       learning_rate: 0.1
       n_estimators: 100
+    
+    outputs:
+      training_table:
+          type: uri_file
+          name: claims_training_table
+          
         
   
 

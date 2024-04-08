@@ -22,9 +22,9 @@ def main():
     parser.add_argument("--n_estimators", required=False, default=100, type=int)
     parser.add_argument("--learning_rate", required=False, default=0.1, type=float)
     parser.add_argument("--registered_model_name", type=str, help="model name")
+    parser.add_argument("--training_table", type=str)
 
     args = parser.parse_args()
-
     print(" ".join(f"{k}={v}" for k, v in vars(args).items()))
 
     print("input data:", args.data)
@@ -49,6 +49,11 @@ def main():
     train_df = train_df[train_df['timestamp']<pd.to_datetime('now')]
     train_df.set_index('timestamp', inplace=True)
     train_df.sort_index(inplace=True)
+
+    if not os.path.exists(args.training_table):
+        os.makedirs(args.training_table)
+
+    train_df.to_csv(os.path.join(args.training_table,'training.csv'), index=False)
 
     X = train_df.drop(labels=['is_claim'], axis=1)
     y = train_df['is_claim']
