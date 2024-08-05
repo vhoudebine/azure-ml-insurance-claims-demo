@@ -9,7 +9,7 @@ on:
         default: 'vince-rg' 
         type: string
       aml_workspace:
-        description: 'Azure Machine Learning workspace name'
+        description: 'AML workspace name'
         required: true
         default: 'vince-dev' 
         type: string
