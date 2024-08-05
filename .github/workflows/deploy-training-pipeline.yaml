@@ -33,4 +33,4 @@ jobs:
     - name: Run AML Pipeline Job
       run: |
         cd src
-        az ml job create --file ../training_pipeline.yml
+        az ml job create --file ../training_pipeline.yml --stream True
