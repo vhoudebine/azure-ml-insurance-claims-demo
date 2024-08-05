@@ -6,12 +6,12 @@ on:
       resource_group:
         description: 'Resource group name'
         required: true
-        default: 'rg_aml' 
+        default: 'vince-rg' 
         type: string
       aml_workspace:
         description: 'Azure Machine Learning workspace name'
         required: true
-        default: 'aml-default' 
+        default: 'vince-dev' 
         type: string
 
 jobs:
@@ -30,9 +30,6 @@ jobs:
       run: |
         az configure --defaults group="${{ github.event.inputs.resource_group }}"
         az configure --defaults workspace="${{ github.event.inputs.aml_workspace }}"
-    - name: Create Pipeline Environment
-      run: |
-        az ml environment create --file ./dependencies/job_env.yml
     - name: Run AML Pipeline Job
       run: |
         cd src
